@@ -1,5 +1,5 @@
 {
-    "name": "tarte-tilde",
+    "name": "@C74_PACKAGE_NAME@",
     "author": "Thomas RISSE, Alois CERBU",
     "description": "Physical modelling synthesis (for now: voice)",
     "homepatcher": "Tarte-Overview.maxpat",
@@ -15,9 +15,8 @@
         }
     },
     "tags": [
-        "max",
-        "physical",
-        "modelling"
+        "physical modelling",
+        "voice"
     ],
     "version": "0.0.1",
     "website": "https://github.com/Ircam-RnD/tarte-tilde"

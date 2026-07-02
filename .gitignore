@@ -46,3 +46,8 @@ build/
 # **/docs/
 
 xcode
+
+
+# Generated package.json
+/src/tarte-tilde/package-info.json
+/package/package-info.json

@@ -60,5 +60,7 @@ foreach (project_dir ${PROJECT_DIRS})
     endif ()
 endforeach ()
 
+configure_file("${CMAKE_CURRENT_SOURCE_DIR}/package-info.json.in" "${CMAKE_CURRENT_SOURCE_DIR}/../../package/package-info.json" COPYONLY)
+
 
 message(STATUS "Deployment target: ${CMAKE_OSX_DEPLOYMENT_TARGET}")
