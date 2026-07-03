@@ -18,6 +18,6 @@
         "physical modelling",
         "voice"
     ],
-    "version": "0.0.1",
+    "version": "@TAG_NAME@",
     "website": "https://github.com/Ircam-RnD/tarte-tilde"
 }

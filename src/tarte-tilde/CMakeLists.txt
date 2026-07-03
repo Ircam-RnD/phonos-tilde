@@ -1,9 +1,23 @@
 cmake_minimum_required(VERSION 3.19)
-
-
 project(tarte-tilde)
 set (CMAKE_CXX_STANDARD 23)
-# enable_testing()
+find_package(Git)
+
+# Get the commit hash of the most recently created tag
+execute_process(
+    COMMAND ${GIT_EXECUTABLE} rev-list --tags --max-count=1
+    OUTPUT_VARIABLE LATEST_TAG_COMMIT
+    OUTPUT_STRIP_TRAILING_WHITESPACE
+)
+
+# Describe that commit using the nearest tag
+execute_process(
+    COMMAND ${GIT_EXECUTABLE} describe --tags ${LATEST_TAG_COMMIT}
+    OUTPUT_VARIABLE TAG_NAME
+    OUTPUT_STRIP_TRAILING_WHITESPACE
+)
+
+message(STATUS "TAG_NAME = ${TAG_NAME}")
 
 # Export compile config
 add_definitions(-DCMAKE_EXPORT_COMPILE_COMMANDS=ON)
