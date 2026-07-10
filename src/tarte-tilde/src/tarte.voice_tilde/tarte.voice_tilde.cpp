@@ -34,6 +34,7 @@ public:
     outlet<> output{this, "(multichannelsignal) output signals", "multichannelsignal"};
     outlet<> parameters_out{this, "(dict) model parameters", "dict"};
     outlet<> geometry_out{this, "(list) geometry output", "list"};
+    outlet<> transfer_out{this, "(list) transfer functions output", "list"};
 
     Voice(const atom &args = {})
     {
@@ -189,6 +190,111 @@ public:
             for (auto val : out)
                 result.push_back(atom(val));
             geometry_out.send(result);
+            return {};
+        }   
+    };
+
+    message<> get_transfer_function { this, "get_transfer_functions",
+        MIN_FUNCTION {
+            if (args.empty()) return {};
+
+            atoms impedance_real;
+            impedance_real.push_back(atom("input_impedance_real"));
+            atoms impedance_imag;
+            impedance_imag.push_back(atom("input_impedance_imag"));
+
+            atoms transfer_function_flow_real;
+            transfer_function_flow_real.push_back(atom("Qin_Qout_TF_real"));
+            atoms transfer_function_flow_imag;
+            transfer_function_flow_imag.push_back(atom("Qin_Qout_TF_imag"));
+
+            atoms transfer_function_pressure_real;
+            transfer_function_pressure_real.push_back(atom("Qin_Pout_TF_real"));
+            atoms transfer_function_pressure_imag;
+            transfer_function_pressure_imag.push_back(atom("Qin_Pout_TF_imag"));
+
+            if (processor_->get_resonator()) {
+                std::vector<double> freqsHz;
+                freqsHz.reserve(args.size());
+                for (auto& freq : args) freqsHz.push_back(static_cast<double>(freq));
+
+                auto results = processor_->get_resonator()->ComputeFrequencyResponse(freqsHz);
+
+                for (auto& vals : results) {
+                    impedance_real.push_back(atom(vals.impedance.real()));
+                    impedance_imag.push_back(atom(vals.impedance.imag()));
+                    transfer_function_flow_real.push_back(atom(vals.transferFunctionFlow.real()));
+                    transfer_function_flow_imag.push_back(atom(vals.transferFunctionFlow.imag()));
+                    transfer_function_pressure_real.push_back(atom(vals.transferFunctionPressure.real()));
+                    transfer_function_pressure_imag.push_back(atom(vals.transferFunctionPressure.imag()));
+                }
+            }
+                
+            transfer_out.send(impedance_real);
+            transfer_out.send(impedance_imag);
+
+            transfer_out.send(transfer_function_flow_real);
+            transfer_out.send(transfer_function_flow_imag);
+
+            transfer_out.send(transfer_function_pressure_real);
+            transfer_out.send(transfer_function_pressure_imag);
+            return {};
+        }   
+    };
+
+    message<> get_poles_residues { this, "get_poles_residues",
+        MIN_FUNCTION {
+            atoms poles_real;
+            poles_real.push_back(atom("poles_real"));
+            atoms poles_imag;
+            poles_imag.push_back(atom("poles_imag"));
+
+            atoms impedance_residues_real;
+            impedance_residues_real.push_back(atom("impedance_residues_real"));
+            atoms impedance_residues_imag;
+            impedance_residues_imag.push_back(atom("impedance_residues_imag"));
+
+            atoms tf_flow_residues_real;
+            tf_flow_residues_real.push_back(atom("tf_flow_residues_real"));
+            atoms tf_flow_residues_imag;
+            tf_flow_residues_imag.push_back(atom("tf_flow_residues_imag"));
+
+            atoms tf_pressure_residues_real;
+            tf_pressure_residues_real.push_back(atom("tf_pressure_residues_real"));
+            atoms tf_pressure_residues_imag;
+            tf_pressure_residues_imag.push_back(atom("tf_pressure_residues_imag"));
+
+
+            if (processor_->get_resonator()) {
+                auto poles_residues = processor_->get_resonator()->ComputePolesResidues();
+                int n_poles = poles_residues.poles.size();
+
+                for (int i = 0; i<n_poles; i++){
+                    poles_real.push_back(poles_residues.poles.at(i).real());
+                    poles_imag.push_back(poles_residues.poles.at(i).imag());
+
+                    impedance_residues_real.push_back(poles_residues.impedanceResidues.at(i).real());
+                    impedance_residues_imag.push_back(poles_residues.impedanceResidues.at(i).imag());
+
+                    tf_flow_residues_real.push_back(poles_residues.tranferFunctionFlowResidues.at(i).real());
+                    tf_flow_residues_imag.push_back(poles_residues.tranferFunctionFlowResidues.at(i).imag());
+
+                    tf_pressure_residues_real.push_back(poles_residues.tranferFunctionPressureResidues.at(i).real());
+                    tf_pressure_residues_imag.push_back(poles_residues.tranferFunctionPressureResidues.at(i).imag());
+                }
+            }
+                
+            transfer_out.send(poles_real);
+            transfer_out.send(poles_imag);
+
+            transfer_out.send(impedance_residues_real);
+            transfer_out.send(impedance_residues_imag);
+
+            transfer_out.send(tf_flow_residues_real);
+            transfer_out.send(tf_flow_residues_imag);
+
+            transfer_out.send(tf_pressure_residues_real);
+            transfer_out.send(tf_pressure_residues_imag);
             return {};
         }   
     };
