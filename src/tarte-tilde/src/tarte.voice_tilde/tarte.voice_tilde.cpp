@@ -1,5 +1,6 @@
-#include "larynx.h"
+#include "voice.h"
 #include "vowels.h"
+#include "vocal_folds/body_cover_pair.h"
 #include "c74_min.h"
 #include <atomic>
 #include <memory>
@@ -21,7 +22,7 @@ private:
     static const int N_signals_in_{1};
     static const int N_signals_out_{7};
 
-    std::shared_ptr<tarte::Larynx<ftype>> processor_;
+    std::shared_ptr<tarte::Voice<tarte::BodyCoverPair<ftype>, ftype>> processor_;
     tarte::Articulation articulation_;
 
 public:
@@ -38,7 +39,7 @@ public:
 
     Voice(const atom &args = {})
     {
-        processor_ = std::make_shared<tarte::Larynx<ftype>>(44100, true);
+        processor_ = std::make_shared<tarte::Voice<tarte::BodyCoverPair<ftype>, ftype>>(44100, true);
         processor_->get_resonator()->set_l0(17e-2);
         articulation_.SetFromVowel(tarte::vowels::a);
         processor_->get_resonator()->SetTargetGeometryFromArticulation(articulation_);
@@ -76,7 +77,7 @@ public:
         range{0.f, 1.f},
         setter{MIN_FUNCTION{
                 if (processor_){
-                    processor_->set_noise_ratio(args[0]);
+                    processor_->get_vocal_folds()->set_noise_ratio(args[0]);
                 }
                 return args;
             }
@@ -90,7 +91,7 @@ public:
         range{0, 1},
         setter{MIN_FUNCTION{
                 if (processor_){
-                    processor_->set_gender(args[0]);
+                    processor_->get_vocal_folds()->set_gender(args[0]);
                 }
                 return args;
             }
@@ -124,7 +125,7 @@ public:
         range{1e-6, 1e-2},
         setter{MIN_FUNCTION{
                 if (processor_){
-                    processor_->set_epsilon_smooth(args[0]);
+                    processor_->get_vocal_folds()->set_epsilon_smooth(args[0]);
                 }
                 return args;
             }
@@ -157,7 +158,7 @@ public:
     message<> listin { this, "list",
         MIN_FUNCTION {
             if (processor_->get_resonator()){
-                if (args.size() == processor_->get_resonator()->get_N()+1) {
+                if (args.size() == processor_->get_resonator()->get_N()) {
                     std::vector<ftype> areas;
                     areas.reserve(args.size());
                     for (auto& a : args)
@@ -167,7 +168,7 @@ public:
                     articulation_.SetFromFormants(args[0], args[1], NinterpVowel);
                     processor_->get_resonator()->SetTargetGeometryFromArticulation(articulation_);
                 } else {
-                    cout << "Wrong number of areas or formant frequencies should be" << processor_->get_resonator()->get_N()+1 << endl;
+                    cout << "Wrong number of areas or formant frequencies should be" << processor_->get_resonator()->get_N() << " or 2." << endl;
                 }
             }
             return {};
@@ -311,7 +312,7 @@ public:
         MIN_FUNCTION {
             if (processor_){
                 if (args.size() == 3) {
-                processor_->set_masses(args[0], args[1], args[2]);
+                processor_->get_vocal_folds()->set_masses(args[0], args[1], args[2]);
                 }else {
                     cout << "You must provide 3 masses (lower, upper, body)" << endl;
                 }
@@ -324,7 +325,7 @@ public:
         MIN_FUNCTION {
             if (processor_){
                 if (args.size() == 4) {
-                processor_->set_stiffnesses(args[0], args[1], args[2], args[3]);
+                processor_->get_vocal_folds()->set_stiffnesses(args[0], args[1], args[2], args[3]);
                 }else {
                     cout << "You must provide 4 stiffnesses (lower, upper, body, coupling)" << endl;
                 }
@@ -337,7 +338,7 @@ public:
         MIN_FUNCTION {
             if (processor_){
                 if (args.size() == 3) {
-                processor_->set_rest_positions(args[0], args[1], args[2]);
+                processor_->get_vocal_folds()->set_rest_positions(args[0], args[1], args[2]);
                 }else {
                     cout << "You must provide 3 positions (lower, upper, body)" << endl;
                 }
@@ -350,7 +351,7 @@ public:
         MIN_FUNCTION {
             if (processor_){
                 if (args.size() == 3) {
-                processor_->set_muscles_activation(args[0], args[1], args[2]);
+                processor_->get_vocal_folds()->set_muscles_activation(args[0], args[1], args[2]);
                 }else {
                     cout << "You must provide 3 values (Cricothyroid, Thyroarytenoid, lateral Cricoarytenoid)" << endl;
                 }
@@ -376,29 +377,29 @@ public:
             parameters_out.send(msg);
         };
         // Left fold
-        send_vec3("left_masses", processor_->get_masses(tarte::kLeft) * 1e6);                       // mg
-        send_vec3("left_rest_positions", processor_->get_rest_positions(tarte::kLeft) * 1e3);       // mm
-        send_vec3("left_lengths", processor_->get_lengths(tarte::kLeft) * 1e3);                     // mm
-        send_vec3("left_thicknesses", processor_->get_thicknesses(tarte::kLeft) * 1e3);             // mm
-        send_vec4("left_stiffnesses", processor_->get_stiffnesses(tarte::kLeft));                   // N/m
-        send_scalar("left_eta_stiffness", processor_->get_eta_stiffness(tarte::kLeft) * 1e-6);      // mm-2
+        send_vec3("left_masses", processor_->get_vocal_folds()->get_masses(tarte::kLeft) * 1e6);                       // mg
+        send_vec3("left_rest_positions", processor_->get_vocal_folds()->get_rest_positions(tarte::kLeft) * 1e3);       // mm
+        send_vec3("left_lengths", processor_->get_vocal_folds()->get_lengths(tarte::kLeft) * 1e3);                     // mm
+        send_vec3("left_thicknesses", processor_->get_vocal_folds()->get_thicknesses(tarte::kLeft) * 1e3);             // mm
+        send_vec4("left_stiffnesses", processor_->get_vocal_folds()->get_stiffnesses(tarte::kLeft));                   // N/m
+        send_scalar("left_eta_stiffness", processor_->get_vocal_folds()->get_eta_stiffness(tarte::kLeft) * 1e-6);      // mm-2
 
         // Right fold
-        send_vec3("right_masses", processor_->get_masses(tarte::kRight) * 1e6);                     // mg
-        send_vec3("right_rest_positions", processor_->get_rest_positions(tarte::kRight) * 1e3);     // mm
-        send_vec3("right_lengths", processor_->get_lengths(tarte::kRight) * 1e3);                   // mm
-        send_vec3("right_thicknesses", processor_->get_thicknesses(tarte::kRight) * 1e3);           // mm
-        send_vec4("right_stiffnesses", processor_->get_stiffnesses(tarte::kRight));                 // N/m
-        send_scalar("right_eta_stiffness", processor_->get_eta_stiffness(tarte::kRight) * 1e-6);    // mm-2
+        send_vec3("right_masses", processor_->get_vocal_folds()->get_masses(tarte::kRight) * 1e6);                     // mg
+        send_vec3("right_rest_positions", processor_->get_vocal_folds()->get_rest_positions(tarte::kRight) * 1e3);     // mm
+        send_vec3("right_lengths", processor_->get_vocal_folds()->get_lengths(tarte::kRight) * 1e3);                   // mm
+        send_vec3("right_thicknesses", processor_->get_vocal_folds()->get_thicknesses(tarte::kRight) * 1e3);           // mm
+        send_vec4("right_stiffnesses", processor_->get_vocal_folds()->get_stiffnesses(tarte::kRight));                 // N/m
+        send_scalar("right_eta_stiffness", processor_->get_vocal_folds()->get_eta_stiffness(tarte::kRight) * 1e-6);    // mm-2
 
         // Contact
-        send_scalar("contact_stiffness", processor_->get_contact_stiffness());                      // N/m
-        send_scalar("alpha_contact_stiffness", processor_->get_alpha_contact_stiffness());          // no units
+        send_scalar("contact_stiffness", processor_->get_vocal_folds()->get_contact_stiffness());                      // N/m
+        send_scalar("alpha_contact_stiffness", processor_->get_vocal_folds()->get_alpha_contact_stiffness());          // no units
 
         // Fluid
-        send_scalar("c0", processor_->get_c0());                                                    // m/s
-        send_scalar("rho0", processor_->get_rho0());                                                // kg.m-3
-        send_scalar("kt", processor_->get_kt());                                                    // no units
+        send_scalar("c0", processor_->get_vocal_folds()->get_c0());                                                    // m/s
+        send_scalar("rho0", processor_->get_vocal_folds()->get_rho0());                                                // kg.m-3
+        send_scalar("kt", processor_->get_vocal_folds()->get_kt());                                                    // no units
 
         // Solver
         send_scalar("lambda_sav", processor_->get_lambda_sav()); // s-1
