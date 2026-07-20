@@ -9,10 +9,23 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ -571.0, -988.0, 2526.0, 954.0 ],
+        "rect": [ 0.0, 95.0, 1478.0, 853.0 ],
         "openinpresentation": 1,
         "toolbars_unpinned_last_save": 1,
         "boxes": [
+            {
+                "box": {
+                    "id": "obj-19",
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 30.0, 139.0, 42.0, 22.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 144.0, 194.0, 42.0, 22.0 ],
+                    "text": "freeze"
+                }
+            },
             {
                 "box": {
                     "id": "obj-49",
@@ -616,6 +629,12 @@
                 "patchline": {
                     "destination": [ "obj-20", 0 ],
                     "source": [ "obj-18", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-17", 0 ],
+                    "source": [ "obj-19", 0 ]
                 }
             },
             {
