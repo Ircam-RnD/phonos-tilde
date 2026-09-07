@@ -177,7 +177,17 @@ public:
 
     message<> get_articulation { this, "get_articulation",
         MIN_FUNCTION {
-            if (args.empty()) return {};
+            if (args.empty()) {
+                if (processor_->get_resonator()) {
+                    std::vector<ftype> out(processor_->get_resonator()->get_N());
+                    processor_->get_resonator()->getTargetGeometry(out.data(), processor_->get_resonator()->get_N());
+                    atoms result;
+                    for (auto val : out)
+                        result.push_back(atom(val));
+                    geometry_out.send(result);
+                }
+                return {};
+            }
 
             std::vector<ftype> in;
             in.reserve(args.size());

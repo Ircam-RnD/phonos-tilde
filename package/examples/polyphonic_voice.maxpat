@@ -9,7 +9,7 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 0.0, 95.0, 1478.0, 853.0 ],
+        "rect": [ 0.0, 92.0, 1560.0, 1074.0 ],
         "openinpresentation": 1,
         "toolbars_unpinned_last_save": 1,
         "boxes": [
@@ -44,7 +44,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 79.0, 616.0, 218.0, 27.0 ],
+                    "patching_rect": [ 79.5, 776.0, 218.0, 27.0 ],
                     "presentation": 1,
                     "presentation_rect": [ 546.0, 589.0, 218.0, 27.0 ],
                     "text": "Start audio !"
@@ -591,10 +591,11 @@
             {
                 "box": {
                     "id": "obj-2",
+                    "local": 1,
                     "maxclass": "ezdac~",
                     "numinlets": 2,
                     "numoutlets": 0,
-                    "patching_rect": [ 33.0, 607.0, 45.0, 45.0 ],
+                    "patching_rect": [ 33.5, 767.0, 45.0, 45.0 ],
                     "presentation": 1,
                     "presentation_rect": [ 546.0, 628.0, 45.0, 45.0 ]
                 }
@@ -712,14 +713,14 @@
             {
                 "patchline": {
                     "destination": [ "obj-2", 1 ],
-                    "midpoints": [ 48.75, 592.0, 68.5, 592.0 ],
+                    "midpoints": [ 48.75, 592.0, 69.0, 592.0 ],
                     "source": [ "obj-6", 1 ]
                 }
             },
             {
                 "patchline": {
                     "destination": [ "obj-2", 0 ],
-                    "midpoints": [ 41.5, 601.0, 42.5, 601.0 ],
+                    "midpoints": [ 41.5, 601.0, 43.0, 601.0 ],
                     "source": [ "obj-6", 0 ]
                 }
             },

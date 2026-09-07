@@ -29,22 +29,12 @@
 
 	<methodlist>
 
-		<method name='stiffnesses'>
-			<digest></digest>
-			<description></description>
-		</method>
-
 		<method name='list'>
 			<digest></digest>
 			<description></description>
 		</method>
 
-		<method name='lpf_cutoff'>
-			<digest></digest>
-			<description></description>
-		</method>
-
-		<method name='get_articulation'>
+		<method name='get_transfer_functions'>
 			<digest></digest>
 			<description></description>
 		</method>
@@ -59,12 +49,32 @@
 			<description></description>
 		</method>
 
-		<method name='muscles_activation'>
+		<method name='get_poles_residues'>
+			<digest></digest>
+			<description></description>
+		</method>
+
+		<method name='get_articulation'>
 			<digest></digest>
 			<description></description>
 		</method>
 
 		<method name='rest_positions'>
+			<digest></digest>
+			<description></description>
+		</method>
+
+		<method name='stiffnesses'>
+			<digest></digest>
+			<description></description>
+		</method>
+
+		<method name='lpf_cutoff'>
+			<digest></digest>
+			<description></description>
+		</method>
+
+		<method name='muscles_activation'>
 			<digest></digest>
 			<description></description>
 		</method>

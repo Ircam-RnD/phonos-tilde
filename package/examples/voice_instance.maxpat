@@ -207,7 +207,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "float" ],
                     "patching_rect": [ 84.0, 212.0, 33.0, 22.0 ],
-                    "text": "* 10."
+                    "text": "* 50."
                 }
             },
             {
@@ -352,8 +352,8 @@
                     "id": "obj-6",
                     "maxclass": "newobj",
                     "numinlets": 1,
-                    "numoutlets": 3,
-                    "outlettype": [ "multichannelsignal", "dict", "list" ],
+                    "numoutlets": 4,
+                    "outlettype": [ "multichannelsignal", "dict", "list", "list" ],
                     "patching_rect": [ 86.0, 434.0, 71.0, 22.0 ],
                     "text": "tarte.voice~"
                 }
@@ -388,6 +388,10 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 92.0, 43.0, 19.0, 22.0 ],
+                    "saved_object_attributes": {
+                        "attr_comment": "",
+                        "c": ""
+                    },
                     "text": "in"
                 }
             },
@@ -398,10 +402,6 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 86.0, 506.0, 32.0, 22.0 ],
-                    "saved_object_attributes": {
-                        "attr_comment": "",
-                        "c": ""
-                    },
                     "text": "out~"
                 }
             }
@@ -703,7 +703,6 @@
                     "source": [ "obj-9", 0 ]
                 }
             }
-        ],
-        "autosave": 0
+        ]
     }
 }
