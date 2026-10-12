@@ -3706,7 +3706,7 @@
                                     "presentation": 1,
                                     "presentation_linecount": 9,
                                     "presentation_rect": [ 601.0, 60.0, 693.0, 147.0 ],
-                                    "text": "If the patch, including the trackpad object, loads correctly, then subglottal pressure should be controlled by the pressure of your finger on the mac's trackpad. \nThe position on the trackpad should control the vowel in F1-F2 space.\n\nIf the trackpad object doesn't load, you can still use the patch by changing values of subglottal pressure and formant frequencies throught the envelops.\n\nThanks for experimenting with this patch! You can reach me at:\nthomas.risse@ircam.fr"
+                                    "text": "If the patch, including the trackpad object, loads correctly, then subglottal pressure should be controlled by the pressure of your finger on the mac's trackpad, after clicking on \"open 0\". \nThe position on the trackpad should control the vowel in F1-F2 space.\n\nIf the trackpad object doesn't load, you can still use the patch by changing values of subglottal pressure and formant frequencies throught the envelops.\n\nThanks for experimenting with this patch! You can reach me at:\nthomas.risse@ircam.fr"
                                 }
                             },
                             {
@@ -5047,8 +5047,8 @@
                                     "maxclass": "newobj",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 695.0, 322.5, 87.0, 22.0 ],
-                                    "text": "s pressure_sig"
+                                    "patching_rect": [ 695.0, 322.5, 94.0, 22.0 ],
+                                    "text": "s~ pressure_sig"
                                 }
                             },
                             {
