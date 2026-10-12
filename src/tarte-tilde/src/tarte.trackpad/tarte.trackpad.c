@@ -49,7 +49,7 @@
    ───────────────────────────────────────────────────────────────────────── */
 
 #define MAX_DEVICES    8
-#define MAX_FINGERS   20
+#define MAX_FINGERS   11
 #define MAX_INSTANCES 16
 #define FINGER_FIELDS  9
 
@@ -163,6 +163,7 @@ typedef struct _trackpad {
     MTActuatorRef actuator;
 
     long verbose;
+    long single_finger; 
 } t_trackpad;
 
 static t_class    *trackpad_class = NULL;
@@ -435,19 +436,61 @@ static void trackpad_qfn(t_trackpad *x)
 
     outlet_int(x->out_count, count);
 
-    for (int i = 0; i < count; i++) {
-        MTFinger *f = &local[i];
-        t_atom av[FINGER_FIELDS];
-        atom_setlong (&av[0], (long)f->identifier);
-        atom_setsym  (&av[1], gensym(mt_state_name(f->state)));
-        atom_setfloat(&av[2], f->normalized.pos.x);
-        atom_setfloat(&av[3], f->normalized.pos.y);
-        atom_setfloat(&av[4], f->size);
-        atom_setfloat(&av[5], f->pressure);
-        atom_setfloat(&av[6], f->angle);
-        atom_setfloat(&av[7], f->majorAxis);
-        atom_setfloat(&av[8], f->minorAxis);
-        outlet_list(x->out_fingers, NULL, FINGER_FIELDS, av);
+    bool active[MAX_FINGERS] = {false};
+
+    if (!x->single_finger){
+        for (int i = 0; i < count; i++) {
+            MTFinger *f = &local[i];
+            t_atom av[FINGER_FIELDS];
+            atom_setlong (&av[0], (long)f->identifier);
+            if ((long)f->identifier < MAX_FINGERS){
+                active[(long)f->identifier] = true;
+            }
+            atom_setsym  (&av[1], gensym(mt_state_name(f->state)));
+            atom_setfloat(&av[2], f->normalized.pos.x);
+            atom_setfloat(&av[3], f->normalized.pos.y);
+            atom_setfloat(&av[4], f->size);
+            atom_setfloat(&av[5], f->pressure);
+            atom_setfloat(&av[6], f->angle);
+            atom_setfloat(&av[7], f->majorAxis);
+            atom_setfloat(&av[8], f->minorAxis);
+            outlet_list(x->out_fingers, NULL, FINGER_FIELDS, av);
+        }
+
+        for (int i =0; i< MAX_FINGERS; i++){
+            if (!active[i]){
+                t_atom av[FINGER_FIELDS];
+                atom_setlong (&av[0], i);
+                atom_setsym  (&av[1], gensym(mt_state_name(MT_NOT_TOUCHING)));
+                atom_setfloat(&av[2], 0.);
+                atom_setfloat(&av[3], 0.);
+                atom_setfloat(&av[4], 0.);
+                atom_setfloat(&av[5], 0.);
+                atom_setfloat(&av[6], 0.);
+                atom_setfloat(&av[7], 0.);
+                atom_setfloat(&av[8], 0.);
+                outlet_list(x->out_fingers, NULL, FINGER_FIELDS, av);
+            }
+        }
+    }
+    else {
+        for (int i = 0; i < count & i < 1; i++) {
+            MTFinger *f = &local[i];
+            t_atom av[FINGER_FIELDS];
+            atom_setlong (&av[0], (long)f->identifier);
+            if ((long)f->identifier < MAX_FINGERS){
+                active[(long)f->identifier] = true;
+            }
+            atom_setsym  (&av[1], gensym(mt_state_name(f->state)));
+            atom_setfloat(&av[2], f->normalized.pos.x);
+            atom_setfloat(&av[3], f->normalized.pos.y);
+            atom_setfloat(&av[4], f->size);
+            atom_setfloat(&av[5], f->pressure);
+            atom_setfloat(&av[6], f->angle);
+            atom_setfloat(&av[7], f->majorAxis);
+            atom_setfloat(&av[8], f->minorAxis);
+            outlet_list(x->out_fingers, NULL, FINGER_FIELDS, av);
+        }
     }
 }
 
@@ -785,6 +828,9 @@ void ext_main(void *r)
 
     CLASS_ATTR_LONG(c, "verbose", 0, t_trackpad, verbose);
     CLASS_ATTR_STYLE_LABEL(c, "verbose", 0, "onoff", "Verbose state output");
+
+    CLASS_ATTR_LONG(c, "single_finger", 0, t_trackpad, single_finger);
+    CLASS_ATTR_STYLE_LABEL(c, "single_finger", 0, "onoff", "Single finger mode");
 
     class_register(CLASS_BOX, c);
     trackpad_class = c;
