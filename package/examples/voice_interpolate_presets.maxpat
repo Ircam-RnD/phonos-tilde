@@ -14,6 +14,56 @@
         "boxes": [
             {
                 "box": {
+                    "id": "obj-7",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "signal" ],
+                    "patching_rect": [ 668.0, 285.0, 31.0, 22.0 ],
+                    "text": "sig~"
+                }
+            },
+            {
+                "box": {
+                    "fontface": 0,
+                    "fontname": "Arial",
+                    "fontsize": 12.0,
+                    "id": "obj-3",
+                    "maxclass": "number~",
+                    "mode": 2,
+                    "numinlets": 2,
+                    "numoutlets": 2,
+                    "outlettype": [ "signal", "float" ],
+                    "patching_rect": [ 27.5, 243.0, 56.0, 22.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 27.5, 243.0, 56.0, 22.0 ],
+                    "sig": 0.0
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-81",
+                    "maxclass": "newobj",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "signal" ],
+                    "patching_rect": [ 668.0, 340.0, 78.0, 22.0 ],
+                    "text": "onepole~ 10."
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-8",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 643.0, 218.0, 141.0, 22.0 ],
+                    "text": "loadmess single_finger 1"
+                }
+            },
+            {
+                "box": {
                     "id": "obj-139",
                     "maxclass": "message",
                     "numinlets": 2,
@@ -32,7 +82,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 714.0, 278.5, 40.0, 22.0 ],
+                    "patching_rect": [ 668.0, 313.0, 40.0, 22.0 ],
                     "text": "*~ 10."
                 }
             },
@@ -1631,7 +1681,7 @@
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 1441.0, 60.5, 440.0, 147.0 ],
+                    "patching_rect": [ 1441.0, 60.5, 446.0, 147.0 ],
                     "presentation": 1,
                     "presentation_linecount": 6,
                     "presentation_rect": [ 321.0, 7.0, 986.0, 100.0 ],
@@ -2905,7 +2955,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 29.5, 120.0, 92.0, 22.0 ],
+                    "patching_rect": [ 27.5, 198.0, 92.0, 22.0 ],
                     "text": "r~ pressure_sig"
                 }
             },
@@ -2915,7 +2965,7 @@
                     "maxclass": "newobj",
                     "numinlets": 1,
                     "numoutlets": 0,
-                    "patching_rect": [ 606.0, 295.5, 94.0, 22.0 ],
+                    "patching_rect": [ 660.0, 367.0, 94.0, 22.0 ],
                     "text": "s~ pressure_sig"
                 }
             },
@@ -3002,29 +3052,6 @@
                     "outlettype": [ "multichannelsignal", "dict", "list", "list" ],
                     "patching_rect": [ 38.0, 345.0, 71.0, 22.0 ],
                     "text": "tarte.voice~"
-                }
-            },
-            {
-                "box": {
-                    "format": 6,
-                    "id": "obj-7",
-                    "maxclass": "flonum",
-                    "numinlets": 1,
-                    "numoutlets": 2,
-                    "outlettype": [ "", "bang" ],
-                    "parameter_enable": 0,
-                    "patching_rect": [ 89.0, 218.0, 50.0, 22.0 ]
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-3",
-                    "maxclass": "newobj",
-                    "numinlets": 2,
-                    "numoutlets": 1,
-                    "outlettype": [ "signal" ],
-                    "patching_rect": [ 31.0, 266.0, 78.0, 22.0 ],
-                    "text": "onepole~ 10."
                 }
             },
             {
@@ -3725,7 +3752,6 @@
             {
                 "patchline": {
                     "destination": [ "obj-6", 0 ],
-                    "midpoints": [ 40.5, 306.0, 27.0, 306.0, 27.0, 339.0, 47.5, 339.0 ],
                     "source": [ "obj-3", 0 ]
                 }
             },
@@ -3801,7 +3827,7 @@
             },
             {
                 "patchline": {
-                    "destination": [ "obj-5", 0 ],
+                    "destination": [ "obj-7", 0 ],
                     "source": [ "obj-45", 5 ]
                 }
             },
@@ -3821,14 +3847,13 @@
             },
             {
                 "patchline": {
-                    "destination": [ "obj-50", 0 ],
+                    "destination": [ "obj-81", 0 ],
                     "source": [ "obj-5", 0 ]
                 }
             },
             {
                 "patchline": {
                     "destination": [ "obj-3", 0 ],
-                    "midpoints": [ 39.0, 144.0, 40.5, 144.0 ],
                     "source": [ "obj-51", 0 ]
                 }
             },
@@ -3951,8 +3976,7 @@
             },
             {
                 "patchline": {
-                    "destination": [ "obj-3", 1 ],
-                    "midpoints": [ 98.5, 261.0, 99.5, 261.0 ],
+                    "destination": [ "obj-5", 0 ],
                     "source": [ "obj-7", 0 ]
                 }
             },
@@ -4003,6 +4027,18 @@
                     "destination": [ "obj-78", 0 ],
                     "midpoints": [ 1408.5, 918.0, 1122.0, 918.0, 1122.0, 927.0, 1046.5, 927.0 ],
                     "source": [ "obj-77", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-29", 0 ],
+                    "source": [ "obj-8", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-50", 0 ],
+                    "source": [ "obj-81", 0 ]
                 }
             },
             {
