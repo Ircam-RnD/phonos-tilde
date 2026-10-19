@@ -1,11 +1,13 @@
 # Tarte-tilde
 
-Max-MSP objects based on the [tarte](https://github.com/Ircam-RnD/tarte) library for audio synthesis based on physical modeling. As of now, contains almost exclusively an object related to voice synthesis named ``tarte.voice~``.
+Max-MSP objects based on the [tarte](https://github.com/Ircam-RnD/tarte) (Time domain Acoustic Real-Time Engine) library for audio synthesis based on physical modeling. As of now, contains almost exclusively an object related to voice synthesis named ``tarte.voice~``.
 
 
 ## Contents
 
 ### Overview patch
+
+The overview patch should appear in the `Extras` window of Max as `Tarte-Overview`. From there, you can directly open a few demo patches. 
 
 ### tarte.voice~
 
