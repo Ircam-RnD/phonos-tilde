@@ -9,9 +9,24 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 34.0, 95.0, 1124.0, 853.0 ],
+        "rect": [ 34.0, 95.0, 1444.0, 853.0 ],
         "openinpresentation": 1,
         "boxes": [
+            {
+                "box": {
+                    "id": "obj-142",
+                    "linecount": 14,
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 1623.0, 228.5, 282.0, 194.0 ],
+                    "presentation": 1,
+                    "presentation_linecount": 9,
+                    "presentation_rect": [ 24.5, 179.0, 473.0, 127.0 ],
+                    "text": ">[!CAUTION] \n> Due to the lack of better solution, the freeze message internally blocks all communication related to the MacOs Dock process by execution the command `pgrep -x Dock | xargs kill -s STOP`. If Max were to crash, you should recover the use of the mouse cursor but not the Dock-related features, which is REALLY panicking when it happens. The solution in that case is to open a terminal (the `cmd+space` spotlight research + typing `terminal` will do so) and execute the command `pgrep -x Dock | xargs kill -s CONT`. Restarting the computer will also fix the problem in a desperate scenario.",
+                    "textcolor": [ 1.0, 0.0, 0.0, 1.0 ]
+                }
+            },
             {
                 "box": {
                     "id": "obj-7",
@@ -30,14 +45,14 @@
                     "fontsize": 12.0,
                     "id": "obj-3",
                     "maxclass": "number~",
-                    "mode": 2,
+                    "mode": 1,
                     "numinlets": 2,
                     "numoutlets": 2,
                     "outlettype": [ "signal", "float" ],
-                    "patching_rect": [ 27.5, 243.0, 56.0, 22.0 ],
+                    "patching_rect": [ 73.5, 243.0, 56.0, 22.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 27.5, 243.0, 56.0, 22.0 ],
-                    "sig": 0.0
+                    "presentation_rect": [ 33.0, 393.0, 56.0, 22.0 ],
+                    "sig": 1200.0
                 }
             },
             {
@@ -510,7 +525,7 @@
                     },
                     "patching_rect": [ 1532.0, 533.0, 245.0, 197.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 496.0, 108.0, 245.0, 197.0 ],
+                    "presentation_rect": [ 495.0, 158.0, 245.0, 197.0 ],
                     "viewvisibility": 1
                 }
             },
@@ -883,7 +898,7 @@
                     },
                     "patching_rect": [ 1778.0, 533.0, 251.0, 196.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 742.0, 109.0, 251.0, 196.0 ],
+                    "presentation_rect": [ 741.0, 159.0, 251.0, 196.0 ],
                     "viewvisibility": 1
                 }
             },
@@ -1256,7 +1271,7 @@
                     },
                     "patching_rect": [ 2030.0, 532.0, 250.0, 197.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 995.0, 108.0, 250.0, 197.0 ],
+                    "presentation_rect": [ 994.0, 158.0, 250.0, 197.0 ],
                     "viewvisibility": 1
                 }
             },
@@ -1291,7 +1306,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 1527.0, 478.0, 221.0, 33.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 495.0, 87.0, 285.0, 20.0 ],
+                    "presentation_rect": [ 494.0, 136.0, 285.0, 20.0 ],
                     "text": "Envelope-based pressure and formant control"
                 }
             },
@@ -1368,7 +1383,7 @@
                     "patching_rect": [ 1441.0, 263.0, 150.0, 33.0 ],
                     "presentation": 1,
                     "presentation_linecount": 2,
-                    "presentation_rect": [ 581.5, 826.0, 150.0, 33.0 ],
+                    "presentation_rect": [ 583.0, 883.0, 150.0, 33.0 ],
                     "text": "Presets from Tom Mudd: Thanks !!!"
                 }
             },
@@ -1551,7 +1566,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 978.0, 290.0, 195.0, 24.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 567.0, 330.0, 152.0, 24.0 ],
+                    "presentation_rect": [ 568.0, 387.0, 152.0, 24.0 ],
                     "text": "Explore presets",
                     "textcolor": [ 0.88529247045517, 0.673130631446838, 0.377244234085083, 1.0 ],
                     "textjustification": 1
@@ -1572,7 +1587,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 1047.0, 228.5, 57.0, 51.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 578.0, 319.0, 546.0, 490.0 ],
+                    "presentation_rect": [ 579.0, 376.0, 546.0, 490.0 ],
                     "xplace": [ 0.1, 0.9, 0.75, 0.5, 0.05 ],
                     "yplace": [ 0.1, 0.25, 0.8, 0.5, 0.95 ]
                 }
@@ -1587,7 +1602,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 1224.0, 16.0, 195.0, 24.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 1133.0, 362.0, 152.0, 24.0 ],
+                    "presentation_rect": [ 1134.0, 419.0, 152.0, 24.0 ],
                     "text": "Presets",
                     "textcolor": [ 0.88529247045517, 0.673130631446838, 0.377244234085083, 1.0 ],
                     "textjustification": 1
@@ -1619,7 +1634,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 1238.0, 45.0, 154.0, 180.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 1131.0, 360.0, 154.0, 140.0 ],
+                    "presentation_rect": [ 1132.0, 417.0, 154.0, 140.0 ],
                     "textcolor": [ 0.88529247045517, 0.673130631446838, 0.377244234085083, 1.0 ],
                     "varname": "chooser"
                 }
@@ -1822,7 +1837,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 876.5, 138.0, 150.0, 33.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 1140.0, 554.0, 167.0, 20.0 ],
+                    "presentation_rect": [ 1141.0, 611.0, 167.0, 20.0 ],
                     "text": "Noise ratio (between 0 and 1)"
                 }
             },
@@ -1837,7 +1852,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 819.0, 137.0, 50.0, 22.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 1195.0, 582.0, 50.0, 22.0 ],
+                    "presentation_rect": [ 1196.0, 639.0, 50.0, 22.0 ],
                     "varname": "noise-ratio"
                 }
             },
@@ -1912,7 +1927,7 @@
                     "outlettype": [ "" ],
                     "patching_rect": [ 1147.0, 873.0, 35.0, 22.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 155.0, 850.0, 35.0, 22.0 ],
+                    "presentation_rect": [ 160.0, 1001.0, 35.0, 22.0 ],
                     "text": "reset"
                 }
             },
@@ -1957,7 +1972,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 1026.0, 851.0, 250.0, 20.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 30.0, 851.0, 250.0, 20.0 ],
+                    "presentation_rect": [ 35.0, 1002.0, 250.0, 20.0 ],
                     "text": "Larynx pressure drop"
                 }
             },
@@ -1982,7 +1997,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 1399.0, 851.0, 24.0, 24.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 527.0, 849.0, 24.0, 24.0 ]
+                    "presentation_rect": [ 532.0, 1000.0, 24.0, 24.0 ]
                 }
             },
             {
@@ -2006,7 +2021,7 @@
                     "outlettype": [ "bang" ],
                     "patching_rect": [ 1037.0, 933.0, 476.0, 227.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 30.0, 873.0, 521.0, 114.0 ],
+                    "presentation_rect": [ 35.0, 1024.0, 521.0, 114.0 ],
                     "range": [ 0.0, 1.0 ],
                     "samples": 2000.0,
                     "trigger_threshold": 0.01
@@ -2021,7 +2036,7 @@
                     "outlettype": [ "" ],
                     "patching_rect": [ 1118.0, 504.0, 35.0, 22.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 137.0, 670.0, 35.0, 22.0 ],
+                    "presentation_rect": [ 142.0, 821.0, 35.0, 22.0 ],
                     "text": "reset"
                 }
             },
@@ -2034,7 +2049,7 @@
                     "outlettype": [ "" ],
                     "patching_rect": [ 635.0, 873.0, 35.0, 22.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 115.0, 515.0, 35.0, 22.0 ],
+                    "presentation_rect": [ 120.0, 666.0, 35.0, 22.0 ],
                     "text": "reset"
                 }
             },
@@ -2079,7 +2094,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 527.0, 851.0, 250.0, 20.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 30.0, 516.0, 250.0, 20.0 ],
+                    "presentation_rect": [ 35.0, 667.0, 250.0, 20.0 ],
                     "text": "Glottal flow"
                 }
             },
@@ -2104,7 +2119,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 900.0, 851.0, 24.0, 24.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 527.0, 514.0, 24.0, 24.0 ]
+                    "presentation_rect": [ 532.0, 665.0, 24.0, 24.0 ]
                 }
             },
             {
@@ -2128,7 +2143,7 @@
                     "outlettype": [ "bang" ],
                     "patching_rect": [ 538.0, 933.0, 476.0, 227.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 30.0, 538.0, 521.0, 114.0 ],
+                    "presentation_rect": [ 35.0, 689.0, 521.0, 114.0 ],
                     "range": [ -0.100000001490116, 1.0 ],
                     "samples": 2000.0,
                     "trigger_threshold": 0.01
@@ -2185,7 +2200,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 1022.0, 482.0, 250.0, 20.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 30.0, 671.0, 250.0, 20.0 ],
+                    "presentation_rect": [ 35.0, 822.0, 250.0, 20.0 ],
                     "text": "Output pressure"
                 }
             },
@@ -2231,7 +2246,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 1395.0, 482.0, 24.0, 24.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 527.0, 669.0, 24.0, 24.0 ]
+                    "presentation_rect": [ 532.0, 820.0, 24.0, 24.0 ]
                 }
             },
             {
@@ -2255,7 +2270,7 @@
                     "outlettype": [ "bang" ],
                     "patching_rect": [ 1033.0, 564.0, 476.0, 227.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 30.0, 694.0, 521.0377342700958, 133.96227037906647 ],
+                    "presentation_rect": [ 35.0, 845.0, 521.0377342700958, 133.96227037906647 ],
                     "samples": 2000.0,
                     "trigger_threshold": 0.01
                 }
@@ -2291,7 +2306,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 855.0, 482.0, 24.0, 24.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 527.0, 319.0, 24.0, 24.0 ]
+                    "presentation_rect": [ 532.0, 470.0, 24.0, 24.0 ]
                 }
             },
             {
@@ -2313,7 +2328,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 542.0, 803.0, 226.0, 20.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 30.0, 487.0, 226.0, 20.0 ],
+                    "presentation_rect": [ 35.0, 638.0, 226.0, 20.0 ],
                     "text": "Yellow: lower, Blue: upper, Green: body"
                 }
             },
@@ -2330,7 +2345,7 @@
                     "outlettype": [ "bang" ],
                     "patching_rect": [ 542.0, 564.0, 468.0, 227.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 30.0, 342.0, 521.0, 142.0 ],
+                    "presentation_rect": [ 35.0, 493.0, 521.0, 142.0 ],
                     "range": [ 0.0, 0.2 ],
                     "samples": 2000.0,
                     "trigger_threshold": 0.01
@@ -2349,7 +2364,7 @@
                     "outlettype": [ "bang" ],
                     "patching_rect": [ 542.0, 564.0, 468.0, 227.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 30.0, 342.0, 521.0, 142.0 ],
+                    "presentation_rect": [ 35.0, 493.0, 521.0, 142.0 ],
                     "range": [ 0.0, 0.2 ],
                     "samples": 2000.0,
                     "trigger_threshold": 0.01
@@ -2365,7 +2380,7 @@
                     "outlettype": [ "bang" ],
                     "patching_rect": [ 542.0, 564.0, 468.0, 227.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 30.0, 342.0, 521.0, 142.0 ],
+                    "presentation_rect": [ 35.0, 493.0, 521.0, 142.0 ],
                     "range": [ 0.0, 0.2 ],
                     "samples": 2000.0,
                     "trigger_threshold": 0.01
@@ -2412,7 +2427,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 528.0, 482.0, 250.0, 20.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 30.0, 321.0, 250.0, 20.0 ],
+                    "presentation_rect": [ 35.0, 472.0, 250.0, 20.0 ],
                     "text": "Glottal opening"
                 }
             },
@@ -2824,7 +2839,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 332.0, 167.0, 150.0, 20.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 291.0, 222.0, 150.0, 20.0 ],
+                    "presentation_rect": [ 296.0, 372.0, 150.0, 20.0 ],
                     "text": "Second formant frequency"
                 }
             },
@@ -2839,7 +2854,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 332.0, 189.0, 50.0, 22.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 291.0, 244.0, 50.0, 22.0 ]
+                    "presentation_rect": [ 296.0, 394.0, 50.0, 22.0 ]
                 }
             },
             {
@@ -2850,7 +2865,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 184.0, 167.0, 150.0, 20.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 150.0, 222.0, 150.0, 20.0 ],
+                    "presentation_rect": [ 155.0, 372.0, 150.0, 20.0 ],
                     "text": "First formant frequency"
                 }
             },
@@ -2865,7 +2880,7 @@
                     "parameter_enable": 0,
                     "patching_rect": [ 189.0, 189.0, 50.0, 22.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 155.0, 244.0, 50.0, 22.0 ]
+                    "presentation_rect": [ 160.0, 394.0, 50.0, 22.0 ]
                 }
             },
             {
@@ -2920,7 +2935,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 26.0, 97.0, 456.0, 20.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 30.0, 182.0, 456.0, 20.0 ],
+                    "presentation_rect": [ 35.0, 332.0, 456.0, 20.0 ],
                     "text": "Control: subglottal pressure and vocal tract articulation from formant frequencies"
                 }
             },
@@ -2944,7 +2959,7 @@
                     "patching_rect": [ 44.0, 142.0, 115.0, 47.0 ],
                     "presentation": 1,
                     "presentation_linecount": 3,
-                    "presentation_rect": [ 30.0, 204.0, 115.0, 47.0 ],
+                    "presentation_rect": [ 35.0, 354.0, 115.0, 47.0 ],
                     "text": "Subglottal pressure\n(try values from 0 to\n~1000) "
                 }
             },
@@ -3028,7 +3043,7 @@
                     "parameter_enable": 1,
                     "patching_rect": [ 28.5, 723.5, 78.0, 90.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 1147.0, 644.0, 78.0, 90.0 ],
+                    "presentation_rect": [ 1148.0, 701.0, 78.0, 90.0 ],
                     "saved_attribute_attributes": {
                         "valueof": {
                             "parameter_longname": "Output gain",
@@ -3109,24 +3124,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 45.0, 815.0, 45.0, 45.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 1164.0, 751.0, 45.0, 45.0 ]
-                }
-            },
-            {
-                "box": {
-                    "angle": 270.0,
-                    "background": 1,
-                    "bgcolor": [ 0.313725490196078, 0.313725490196078, 0.313725490196078, 1.0 ],
-                    "bordercolor": [ 0.250980392156863, 0.203921568627451, 0.937254901960784, 1.0 ],
-                    "id": "obj-145",
-                    "maxclass": "panel",
-                    "mode": 0,
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ -25.0, 666.0, 111.0, 205.0 ],
-                    "presentation": 1,
-                    "presentation_rect": [ -25.0, 667.0, 101.0, 172.0 ],
-                    "proportion": 0.5
+                    "presentation_rect": [ 1165.0, 808.0, 45.0, 45.0 ]
                 }
             },
             {
@@ -3142,7 +3140,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 812.0, 92.0, 214.5, 138.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 1135.0, 549.0, 182.0, 77.0 ],
+                    "presentation_rect": [ 1136.0, 606.0, 182.0, 77.0 ],
                     "proportion": 0.5
                 }
             },
@@ -3159,7 +3157,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 1020.0, 477.0, 493.0, 361.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 26.0, 669.0, 534.8113193511963, 172.64151746034622 ],
+                    "presentation_rect": [ 31.0, 820.0, 534.8113193511963, 172.64151746034622 ],
                     "proportion": 0.5
                 }
             },
@@ -3191,7 +3189,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 22.0, 92.0, 493.0, 204.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 26.0, 177.0, 460.0, 112.0 ],
+                    "presentation_rect": [ 31.0, 327.0, 460.0, 112.0 ],
                     "proportion": 0.5
                 }
             },
@@ -3223,7 +3221,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 11.0, 666.0, 111.0, 205.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 1136.0, 639.0, 101.0, 172.0 ],
+                    "presentation_rect": [ 1137.0, 696.0, 101.0, 172.0 ],
                     "proportion": 0.5
                 }
             },
@@ -3274,7 +3272,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 525.0, 846.0, 493.0, 361.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 26.0, 514.0, 535.0, 147.0 ],
+                    "presentation_rect": [ 31.0, 665.0, 535.0, 147.0 ],
                     "proportion": 0.5
                 }
             },
@@ -3291,7 +3289,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 1024.0, 846.0, 493.0, 361.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 26.0, 849.0, 535.0, 147.0 ],
+                    "presentation_rect": [ 31.0, 1000.0, 535.0, 147.0 ],
                     "proportion": 0.5
                 }
             },
@@ -3308,7 +3306,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 522.0, 477.0, 493.0, 361.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 26.0, 319.0, 535.0, 188.0 ],
+                    "presentation_rect": [ 31.0, 470.0, 535.0, 188.0 ],
                     "proportion": 0.5
                 }
             },
@@ -3326,7 +3324,7 @@
                     "numoutlets": 0,
                     "patching_rect": [ 1526.0, 477.0, 754.0, 376.0 ],
                     "presentation": 1,
-                    "presentation_rect": [ 495.0, 82.0, 750.0, 224.0 ],
+                    "presentation_rect": [ 494.0, 132.0, 750.0, 224.0 ],
                     "proportion": 0.5
                 }
             }
@@ -3849,12 +3847,6 @@
                 "patchline": {
                     "destination": [ "obj-81", 0 ],
                     "source": [ "obj-5", 0 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-3", 0 ],
-                    "source": [ "obj-51", 0 ]
                 }
             },
             {

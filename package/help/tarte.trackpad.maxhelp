@@ -29,9 +29,21 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 34.0, 121.0, 1124.0, 827.0 ],
+                        "rect": [ 34.0, 147.0, 1124.0, 801.0 ],
                         "showontab": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "id": "obj-24",
+                                    "linecount": 17,
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 287.0, 325.0, 282.0, 234.0 ],
+                                    "text": ">[!CAUTION] \n> Due to the lack of better solution, the freeze message internally blocks all communication related to the MacOs Dock process by execution the command `pgrep -x Dock | xargs kill -s STOP`. As a result, navigation gestures (2 or 3 finger swipes) are deactivated, as well as access to the dock. If you close max normally, everything will come back to normal. However, if Max were to crash, you should recover the use of the mouse cursor but not the Dock-related features, which is REALLY panicking when it happens. The solution in that case is to open a terminal (the `cmd+space` spotlight research + typing `terminal` will do so) and execute the command `pgrep -x Dock | xargs kill -s CONT`. Restarting the computer will also fix the problem in a desperate scenario.",
+                                    "textcolor": [ 1.0, 0.0, 0.0, 1.0 ]
+                                }
+                            },
                             {
                                 "box": {
                                     "id": "obj-31",
@@ -73,7 +85,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 303.0, 286.0, 160.0, 74.0 ],
+                                    "patching_rect": [ 309.0, 238.0, 163.0, 74.0 ],
                                     "text": "In single finger mode, notice how if you leave quickly with a finger, it still appears. When not in finger mode, this should not be the case."
                                 }
                             },
@@ -83,7 +95,7 @@
                                     "maxclass": "newobj",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 469.0, 456.0, 49.0, 22.0 ],
+                                    "patching_rect": [ 572.5, 440.0, 49.0, 22.0 ],
                                     "text": "s metro"
                                 }
                             },
@@ -100,7 +112,7 @@
                                     "numinlets": 1,
                                     "numoutlets": 2,
                                     "outlettype": [ "jit_matrix", "" ],
-                                    "patching_rect": [ 469.0, 65.0, 560.0, 378.0 ],
+                                    "patching_rect": [ 572.5, 49.0, 560.0, 378.0 ],
                                     "sync": 1
                                 }
                             },
@@ -186,7 +198,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 211.0, 405.0, 150.0, 20.0 ],
+                                    "patching_rect": [ 125.0, 372.0, 150.0, 20.0 ],
                                     "text": "Routing per finger index"
                                 }
                             },
@@ -6998,7 +7010,7 @@
                                     "maxclass": "comment",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 501.0, 32.5, 221.0, 27.0 ],
+                                    "patching_rect": [ 604.5, 16.0, 221.0, 27.0 ],
                                     "text": "Start/Stop visualization !"
                                 }
                             },
@@ -7076,7 +7088,7 @@
                                     "numoutlets": 1,
                                     "outlettype": [ "int" ],
                                     "parameter_enable": 0,
-                                    "patching_rect": [ 469.0, 34.0, 24.0, 24.0 ]
+                                    "patching_rect": [ 572.5, 18.0, 24.0, 24.0 ]
                                 }
                             },
                             {
@@ -7887,14 +7899,14 @@
                             {
                                 "patchline": {
                                     "destination": [ "obj-32", 0 ],
-                                    "midpoints": [ 478.5, 444.0, 478.5, 444.0 ],
+                                    "midpoints": [ 582.0, 427.5, 582.0, 427.5 ],
                                     "source": [ "obj-29", 0 ]
                                 }
                             },
                             {
                                 "patchline": {
                                     "destination": [ "obj-29", 0 ],
-                                    "midpoints": [ 478.5, 60.0, 478.5, 60.0 ],
+                                    "midpoints": [ 582.0, 43.5, 582.0, 43.5 ],
                                     "source": [ "obj-3", 0 ]
                                 }
                             },
@@ -8039,9 +8051,21 @@
                             "modernui": 1
                         },
                         "classnamespace": "box",
-                        "rect": [ 0.0, 26.0, 1124.0, 827.0 ],
+                        "rect": [ 0.0, 26.0, 1124.0, 801.0 ],
                         "showontab": 1,
                         "boxes": [
+                            {
+                                "box": {
+                                    "id": "obj-6",
+                                    "linecount": 10,
+                                    "maxclass": "comment",
+                                    "numinlets": 1,
+                                    "numoutlets": 0,
+                                    "patching_rect": [ 791.0, 103.0, 489.0, 141.0 ],
+                                    "text": ">[!CAUTION] \n> Due to the lack of better solution, the freeze message internally blocks all communication related to the MacOs Dock process by execution the command `pgrep -x Dock | xargs kill -s STOP`. As a result, navigation gestures (2 or 3 finger swipes) are deactivated, as well as access to the dock. If you close max normally, everything will come back to normal. However, if Max were to crash, you should recover the use of the mouse cursor but not the Dock-related features, which is REALLY panicking when it happens. The solution in that case is to open a terminal (the `cmd+space` spotlight research + typing `terminal` will do so) and execute the command `pgrep -x Dock | xargs kill -s CONT`. Restarting the computer will also fix the problem in a desperate scenario.",
+                                    "textcolor": [ 1.0, 0.0, 0.0, 1.0 ]
+                                }
+                            },
                             {
                                 "box": {
                                     "id": "obj-13",

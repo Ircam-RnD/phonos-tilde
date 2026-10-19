@@ -9,10 +9,25 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 0.0, 92.0, 1560.0, 1074.0 ],
+        "rect": [ 0.0, 95.0, 1478.0, 853.0 ],
         "openinpresentation": 1,
         "toolbars_unpinned_last_save": 1,
         "boxes": [
+            {
+                "box": {
+                    "id": "obj-5",
+                    "linecount": 13,
+                    "maxclass": "comment",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 367.0, 622.0, 284.0, 181.0 ],
+                    "presentation": 1,
+                    "presentation_linecount": 13,
+                    "presentation_rect": [ 546.0, 366.0, 284.0, 181.0 ],
+                    "text": ">[!CAUTION] \n> Due to the lack of better solution, the freeze message internally blocks all communication related to the MacOs Dock process by execution the command `pgrep -x Dock | xargs kill -s STOP`.  If Max were to crash, you should recover the use of the mouse cursor but not the Dock-related features, which is REALLY panicking when it happens. The solution in that case is to open a terminal (the `cmd+space` spotlight research + typing `terminal` will do so) and execute the command `pgrep -x Dock | xargs kill -s CONT`. Restarting the computer will also fix the problem in a desperate scenario.",
+                    "textcolor": [ 1.0, 0.0, 0.0, 1.0 ]
+                }
+            },
             {
                 "box": {
                     "id": "obj-19",
