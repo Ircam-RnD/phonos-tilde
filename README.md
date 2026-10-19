@@ -11,6 +11,18 @@ The overview patch should appear in the `Extras` window of Max as `Tarte-Overvie
 
 ### tarte.voice~
 
+The voice object is the main synthesis object of the package. It consists of a physical modeling based object for vocal synthesis. If you are interested in knowing more about the model and algorithm, you'll need to wait until I'm not lazy anymore for me to publish a paper on that... In the meantime, some material is available in the [tarte documentation](https://ircam-rnd.github.io/tarte/theory/Physical-components/00-webster/). 
+
+At its core, the model can be viewed as a blackbox synthesis block:
+
+<img src="./media/voice_block_diagram.png" alt="Voice block diagram" width="60%"/>
+
+The object wraps around this diagram, and, while it gives access to the low level input parameters, it also provide a higher level, reduced-order parameter set consisting of 3 muscle activation parameters instead of the 18 vocal folds parameters, and 2 formant frequencies for tuning the vocal tract geometry. The multichannel output also contains radiated pressure as well as vocal fold masses displacements, glottal flow, and glottal pressure drop.
+
+Here is an example interface built around the object:
+
+<img src="./media/voice_example_interface.png" alt="Voice block diagram" width="100%"/>
+
 ### tarte.trackpad
 
 The trackpad object only works for MacOS. It outputs a raw access to trackpad measurements (finger positions, pressure, orientation, size...). It supports up to 11 fingers (yes, some guys at Apple apparently thought humans have 11 fingers) in multi-finger mode (the single finger mode allows to "focus" on a single finger). Here is an example of finger touches visualized as ellipses with 4 fingers engaged:
