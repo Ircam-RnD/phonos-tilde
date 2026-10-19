@@ -13,7 +13,7 @@ The overview patch should appear in the `Extras` window of Max as `Tarte-Overvie
 
 ### tarte.trackpad
 
-The trackpad object only works for MacOS. It outputs a raw access to trackpad measurments (finger positions, pressure, orientation, size...). It supports up to 11 fingers (yes, some guys at Apple apparently thought humans have 11 fingers) in multi-finger mode (the single finger mode allows to "focus" on a single finger). Here is an example of finger touches visualized as ellipses with 4 fingers engaged:
+The trackpad object only works for MacOS. It outputs a raw access to trackpad measurements (finger positions, pressure, orientation, size...). It supports up to 11 fingers (yes, some guys at Apple apparently thought humans have 11 fingers) in multi-finger mode (the single finger mode allows to "focus" on a single finger). Here is an example of finger touches visualized as ellipses with 4 fingers engaged:
 
 ![Multi-finger visualization](/media/trackpad_visualization.png)
 
