@@ -37,4 +37,8 @@ cmake ../src/tarte-tilde -DCMAKE_BUILD_TYPE=Release
 make
 cd ..
 ```
-from the root. After doing so, the built externals must ahve appeared in `package/externals` such that uou can copy the package directory to your max package directory and use the package. If you build for windows, you should remove the tarte.trackpad directory before building as it only works on macos.
+from the root. After doing so, the built externals must ahve appeared in `package/externals` such that you can copy the package directory to your max package directory and use the package. If you build for windows, you should remove the tarte.trackpad directory before building as it only works on macos.
+
+## Authors
+
+The package was initially developed as part of the AVATARS ANR research project. Research was conducted by Thomas Risse, Thomas Hélie, Fabrice Silva and Stefan Bilbao. Code development was made by Thomas Risse and Aloïs Cerbu. Presets for the voice object were kindly given by Tom Mudd. 
