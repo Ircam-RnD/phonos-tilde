@@ -13,7 +13,7 @@ include_directories(
 )
 
 set(SOURCE_FILES
-    tarte.reed_tilde.cpp
+    phonos.reed_tilde.cpp
 )
 
 find_package (Eigen3 5.0 REQUIRED NO_MODULE)
@@ -23,7 +23,7 @@ add_library(${PROJECT_NAME} MODULE ${SOURCE_FILES})
 target_link_libraries(
     ${PROJECT_NAME} PUBLIC
     Eigen3::Eigen
-    tarte::tarte
+    phonos::phonos
 )
 
 include(${C74_MIN_API_DIR}/script/min-posttarget.cmake)

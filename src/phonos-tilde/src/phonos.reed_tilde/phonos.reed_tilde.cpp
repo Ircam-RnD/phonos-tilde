@@ -20,7 +20,7 @@ private:
     static const int N_signals_in_{1};
     static const int N_signals_out_{6};
 
-    std::shared_ptr<tarte::SingleReed<ftype>> processor_;
+    std::shared_ptr<phonos::SingleReed<ftype>> processor_;
 
 public:
     MIN_DESCRIPTION{"Self-oscillating single reed instrument model"};
@@ -34,7 +34,7 @@ public:
 
     Reed(const atom &args = {})
     {
-        processor_ = std::make_shared<tarte::SingleReed<ftype>>(44100);
+        processor_ = std::make_shared<phonos::SingleReed<ftype>>(44100);
         processor_->get_resonator()->set_l0(0.66);
         processor_->get_resonator()->SetConstantSection(M_PI * 1e-4);
     }

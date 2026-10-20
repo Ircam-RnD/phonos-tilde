@@ -47,7 +47,7 @@
                     "patching_rect": [ 290.0, 212.0, 82.0, 22.0 ],
                     "presentation": 1,
                     "presentation_rect": [ 290.0, 212.0, 82.0, 22.0 ],
-                    "text": "tarte.trackpad"
+                    "text": "phonos.trackpad"
                 }
             },
             {
@@ -172,7 +172,7 @@
                     "patching_rect": [ 15.0, 20.0, 285.0, 33.0 ],
                     "presentation": 1,
                     "presentation_rect": [ 15.0, 20.0, 285.0, 33.0 ],
-                    "text": "Tarte overview"
+                    "text": "phonos overview"
                 }
             },
             {

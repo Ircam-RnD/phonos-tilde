@@ -7055,7 +7055,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "", "" ],
                                     "patching_rect": [ 39.0, 371.0, 82.0, 22.0 ],
-                                    "text": "tarte.trackpad"
+                                    "text": "phonos.trackpad"
                                 }
                             },
                             {
@@ -8401,7 +8401,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "", "" ],
                                     "patching_rect": [ 20.0, 234.0, 82.0, 22.0 ],
-                                    "text": "tarte.trackpad"
+                                    "text": "phonos.trackpad"
                                 }
                             },
                             {

@@ -688,7 +688,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
                     "patching_rect": [ 732.0, 233.0, 82.0, 22.0 ],
-                    "text": "tarte.trackpad"
+                    "text": "phonos.trackpad"
                 }
             },
             {
@@ -725,7 +725,7 @@
                     "numoutlets": 4,
                     "outlettype": [ "multichannelsignal", "dict", "list", "list" ],
                     "patching_rect": [ 31.0, 366.0, 71.0, 22.0 ],
-                    "text": "tarte.voice~"
+                    "text": "phonos.voice~"
                 }
             },
             {

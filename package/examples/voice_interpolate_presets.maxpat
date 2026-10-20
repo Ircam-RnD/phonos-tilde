@@ -3029,7 +3029,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
                     "patching_rect": [ 554.0, 218.0, 82.0, 22.0 ],
-                    "text": "tarte.trackpad"
+                    "text": "phonos.trackpad"
                 }
             },
             {
@@ -3066,7 +3066,7 @@
                     "numoutlets": 4,
                     "outlettype": [ "multichannelsignal", "dict", "list", "list" ],
                     "patching_rect": [ 38.0, 345.0, 71.0, 22.0 ],
-                    "text": "tarte.voice~"
+                    "text": "phonos.voice~"
                 }
             },
             {

@@ -23,14 +23,14 @@ jobs:
         brew install nlohmann-json
     - name: Build external
       run: |
-        cd src/tarte-tilde
+        cd src/phonos-tilde
         mkdir -p ./build
         cd ./build
         cmake -DCMAKE_BUILD_TYPE=Release .. -DCMAKE_OSX_ARCHITECTURES:STRING="x86_64;arm64"
         cmake --build . --config "Release" --verbose
         cd ../../..
-        cp -a package tarte-tilde
-        zip -r "tarte-tilde.zip" tarte-tilde
+        cp -a package phonos-tilde
+        zip -r "phonos-tilde.zip" phonos-tilde
     - name: Create release
       id: create_release
       uses: actions/create-release@v1
@@ -47,8 +47,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: tarte-tilde.zip
-        asset_name: tarte-tilde.zip
+        asset_path: phonos-tilde.zip
+        asset_name: phonos-tilde.zip
         asset_content_type: application/zip
     - name: Publish release
       uses: StuYarrow/publish-release@v1.1.2
@@ -77,13 +77,13 @@ jobs:
   #       brew install nlohmann-json
   #   - name: Build external
   #     run: |
-  #       cd src/tarte-tilde
+  #       cd src/phonos-tilde
   #       mkdir -p ./build
   #       cd ./build
   #       cmake -DCMAKE_BUILD_TYPE=Release .. -DCMAKE_OSX_ARCHITECTURES:STRING=x86_64
   #       cmake --build . --config "Release"
   #       cd ..
-  #       zip -r "tarte-tilde.zip" package
+  #       zip -r "phonos-tilde.zip" package
   #   - name: Create release
   #     id: create_release
   #     uses: actions/create-release@v1
@@ -100,8 +100,8 @@ jobs:
   #       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   #     with:
   #       upload_url: ${{ steps.create_release.outputs.upload_url }}
-  #       asset_path: src/tarte-tilde/tarte-tilde.zip
-  #       asset_name: tarte-tilde.zip
+  #       asset_path: src/phonos-tilde/phonos-tilde.zip
+  #       asset_name: phonos-tilde.zip
   #       asset_content_type: application/zip
   #   - name: Publish release
   #     uses: StuYarrow/publish-release@v1.1.2
@@ -134,7 +134,7 @@ jobs:
   #     env:
   #       HDF5_ROOT: C:\vcpkg\installed\x64-windows
   #     run: |
-  #       cd src/tarte-tilde
+  #       cd src/phonos-tilde
   #       New-Item -ItemType Directory -Force -Path ./build
   #       cd ./build
   #       cmake -DCMAKE_BUILD_TYPE=Release .. -A x64 `
@@ -143,7 +143,7 @@ jobs:
   #         -DHDF5_ROOT="C:/vcpkg/installed/x64-windows"
   #       cmake --build . --config Release --verbose
   #       cd ..
-  #       Compress-Archive -Path package -DestinationPath tarte-tilde.zip
+  #       Compress-Archive -Path package -DestinationPath phonos-tilde.zip
   #   - name: Create release
   #     id: create_release
   #     uses: actions/create-release@v1
@@ -160,8 +160,8 @@ jobs:
   #       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   #     with:
   #       upload_url: ${{ steps.create_release.outputs.upload_url }}
-  #       asset_path: src/tarte-tilde/tarte-tilde.zip
-  #       asset_name: tarte-tilde.zip
+  #       asset_path: src/phonos-tilde/phonos-tilde.zip
+  #       asset_name: phonos-tilde.zip
   #       asset_content_type: application/zip
   #   - name: Publish release
   #     uses: StuYarrow/publish-release@v1.1.2

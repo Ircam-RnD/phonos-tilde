@@ -2,7 +2,7 @@
     "name": "@C74_PACKAGE_NAME@",
     "author": "Thomas RISSE, Alois CERBU",
     "description": "Physical modelling synthesis (for now: voice)",
-    "homepatcher": "Tarte-Overview.maxpat",
+    "homepatcher": "phonos-Overview.maxpat",
     "max_version_min": "8.0",
     "max_version_max": "none",
     "os": {
@@ -19,5 +19,5 @@
         "voice"
     ],
     "version": "@TAG_NAME@",
-    "website": "https://github.com/Ircam-RnD/tarte-tilde"
+    "website": "https://github.com/Ircam-RnD/phonos-tilde"
 }

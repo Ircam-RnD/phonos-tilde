@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.19)
-project(tarte-tilde)
+project(phonos-tilde)
 set (CMAKE_CXX_STANDARD 23)
 find_package(Git)
 
@@ -51,15 +51,15 @@ set(C74_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../../package/exter
 # Main engine
 include(FetchContent)
 
-set(TARTE_USE_HDF5 OFF CACHE BOOL "" FORCE)  # Read/write writing support not needed
 FetchContent_Declare(
-    tarte
-    GIT_REPOSITORY https://github.com/Ircam-RnD/tarte
+    phonos
+    GIT_REPOSITORY https://github.com/Ircam-RnD/phonos
     GIT_TAG main
-)
-FetchContent_MakeAvailable(tarte)
-set(TARTE_BUILD_EXAMPLES OFF)
-set(TARTE_BUILD_TESTS OFF)
+    )
+set(phonos_USE_HDF5 OFF CACHE BOOL "" FORCE)  # Read/write writing support not needed
+FetchContent_MakeAvailable(phonos)
+set(phonos_BUILD_EXAMPLES OFF)
+set(phonos_BUILD_TESTS OFF)
 
 
 # Misc setup and subroutines

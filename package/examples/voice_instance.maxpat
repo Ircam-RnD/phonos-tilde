@@ -355,7 +355,7 @@
                     "numoutlets": 4,
                     "outlettype": [ "multichannelsignal", "dict", "list", "list" ],
                     "patching_rect": [ 86.0, 434.0, 71.0, 22.0 ],
-                    "text": "tarte.voice~"
+                    "text": "phonos.voice~"
                 }
             },
             {

@@ -975,7 +975,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
                     "patching_rect": [ 314.0, 168.0, 82.0, 22.0 ],
-                    "text": "tarte.trackpad"
+                    "text": "phonos.trackpad"
                 }
             },
             {
@@ -1012,7 +1012,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "multichannelsignal", "dict" ],
                     "patching_rect": [ 38.0, 345.0, 67.0, 22.0 ],
-                    "text": "tarte.reed~"
+                    "text": "phonos.reed~"
                 }
             },
             {

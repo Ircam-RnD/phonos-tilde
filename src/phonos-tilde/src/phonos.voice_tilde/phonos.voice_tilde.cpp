@@ -22,8 +22,8 @@ private:
     static const int N_signals_in_{1};
     static const int N_signals_out_{7};
 
-    std::shared_ptr<tarte::Voice<tarte::BodyCoverPair<ftype>, ftype>> processor_;
-    tarte::Articulation articulation_;
+    std::shared_ptr<phonos::Voice<phonos::BodyCoverPair<ftype>, ftype>> processor_;
+    phonos::Articulation articulation_;
 
 public:
     MIN_DESCRIPTION{"Self-oscillating voice model"};
@@ -39,9 +39,9 @@ public:
 
     Voice(const atom &args = {})
     {
-        processor_ = std::make_shared<tarte::Voice<tarte::BodyCoverPair<ftype>, ftype>>(44100, true);
+        processor_ = std::make_shared<phonos::Voice<phonos::BodyCoverPair<ftype>, ftype>>(44100, true);
         processor_->get_resonator()->set_l0(17e-2);
-        articulation_.SetFromVowel(tarte::vowels::a);
+        articulation_.SetFromVowel(phonos::vowels::a);
         processor_->get_resonator()->SetTargetGeometryFromArticulation(articulation_);
         // processor_->set_contact_stiffness(0);
     }
@@ -387,20 +387,20 @@ public:
             parameters_out.send(msg);
         };
         // Left fold
-        send_vec3("left_masses", processor_->get_vocal_folds()->get_masses(tarte::kLeft) * 1e6);                       // mg
-        send_vec3("left_rest_positions", processor_->get_vocal_folds()->get_rest_positions(tarte::kLeft) * 1e3);       // mm
-        send_vec3("left_lengths", processor_->get_vocal_folds()->get_lengths(tarte::kLeft) * 1e3);                     // mm
-        send_vec3("left_thicknesses", processor_->get_vocal_folds()->get_thicknesses(tarte::kLeft) * 1e3);             // mm
-        send_vec4("left_stiffnesses", processor_->get_vocal_folds()->get_stiffnesses(tarte::kLeft));                   // N/m
-        send_scalar("left_eta_stiffness", processor_->get_vocal_folds()->get_eta_stiffness(tarte::kLeft) * 1e-6);      // mm-2
+        send_vec3("left_masses", processor_->get_vocal_folds()->get_masses(phonos::kLeft) * 1e6);                       // mg
+        send_vec3("left_rest_positions", processor_->get_vocal_folds()->get_rest_positions(phonos::kLeft) * 1e3);       // mm
+        send_vec3("left_lengths", processor_->get_vocal_folds()->get_lengths(phonos::kLeft) * 1e3);                     // mm
+        send_vec3("left_thicknesses", processor_->get_vocal_folds()->get_thicknesses(phonos::kLeft) * 1e3);             // mm
+        send_vec4("left_stiffnesses", processor_->get_vocal_folds()->get_stiffnesses(phonos::kLeft));                   // N/m
+        send_scalar("left_eta_stiffness", processor_->get_vocal_folds()->get_eta_stiffness(phonos::kLeft) * 1e-6);      // mm-2
 
         // Right fold
-        send_vec3("right_masses", processor_->get_vocal_folds()->get_masses(tarte::kRight) * 1e6);                     // mg
-        send_vec3("right_rest_positions", processor_->get_vocal_folds()->get_rest_positions(tarte::kRight) * 1e3);     // mm
-        send_vec3("right_lengths", processor_->get_vocal_folds()->get_lengths(tarte::kRight) * 1e3);                   // mm
-        send_vec3("right_thicknesses", processor_->get_vocal_folds()->get_thicknesses(tarte::kRight) * 1e3);           // mm
-        send_vec4("right_stiffnesses", processor_->get_vocal_folds()->get_stiffnesses(tarte::kRight));                 // N/m
-        send_scalar("right_eta_stiffness", processor_->get_vocal_folds()->get_eta_stiffness(tarte::kRight) * 1e-6);    // mm-2
+        send_vec3("right_masses", processor_->get_vocal_folds()->get_masses(phonos::kRight) * 1e6);                     // mg
+        send_vec3("right_rest_positions", processor_->get_vocal_folds()->get_rest_positions(phonos::kRight) * 1e3);     // mm
+        send_vec3("right_lengths", processor_->get_vocal_folds()->get_lengths(phonos::kRight) * 1e3);                   // mm
+        send_vec3("right_thicknesses", processor_->get_vocal_folds()->get_thicknesses(phonos::kRight) * 1e3);           // mm
+        send_vec4("right_stiffnesses", processor_->get_vocal_folds()->get_stiffnesses(phonos::kRight));                 // N/m
+        send_scalar("right_eta_stiffness", processor_->get_vocal_folds()->get_eta_stiffness(phonos::kRight) * 1e-6);    // mm-2
 
         // Contact
         send_scalar("contact_stiffness", processor_->get_vocal_folds()->get_contact_stiffness());                      // N/m

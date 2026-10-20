@@ -805,14 +805,14 @@ void trackpad_clicks(t_trackpad *x, long enable)
 
 /* ─────────────────────────────────────────────────────────────────────────
    ext_main — load framework, enumerate devices
-   Devices are started per-instance via open/close, not globally.
+   Devices are sphonosd per-instance via open/close, not globally.
    ───────────────────────────────────────────────────────────────────────── */
 
 void ext_main(void *r)
 {
     if (trackpad_class) return;
 
-    t_class *c = class_new("tarte.trackpad",
+    t_class *c = class_new("phonos.trackpad",
         (method)trackpad_new,
         (method)trackpad_free,
         sizeof(t_trackpad), NULL, A_GIMME, 0);

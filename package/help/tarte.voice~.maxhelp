@@ -1697,7 +1697,7 @@
                                     "numoutlets": 4,
                                     "outlettype": [ "multichannelsignal", "dict", "list", "list" ],
                                     "patching_rect": [ 66.0, 452.0, 71.0, 22.0 ],
-                                    "text": "tarte.voice~"
+                                    "text": "phonos.voice~"
                                 }
                             },
                             {
@@ -5240,7 +5240,7 @@
                                     "numoutlets": 2,
                                     "outlettype": [ "", "" ],
                                     "patching_rect": [ 588.0, 198.0, 82.0, 22.0 ],
-                                    "text": "tarte.trackpad"
+                                    "text": "phonos.trackpad"
                                 }
                             },
                             {
@@ -5299,7 +5299,7 @@
                                     "numoutlets": 4,
                                     "outlettype": [ "multichannelsignal", "dict", "list", "list" ],
                                     "patching_rect": [ 68.0, 375.0, 71.0, 22.0 ],
-                                    "text": "tarte.voice~"
+                                    "text": "phonos.voice~"
                                 }
                             },
                             {

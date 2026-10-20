@@ -11,7 +11,7 @@ include_directories(
 )
 
 set(PROJECT_SRC
-     "tarte.trackpad.c"
+     "phonos.trackpad.c"
 )
 add_library( 
 	${PROJECT_NAME} 
