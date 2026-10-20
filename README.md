@@ -1,4 +1,4 @@
-# phonos-tilde
+# Phonos-tilde
 
 Max-MSP objects based on the [phonos](https://github.com/Ircam-RnD/phonos) (Time domain Acoustic Real-Time Engine) library for audio synthesis based on physical modeling. As of now, contains almost exclusively an object related to voice synthesis named ``phonos.voice~``.
 
