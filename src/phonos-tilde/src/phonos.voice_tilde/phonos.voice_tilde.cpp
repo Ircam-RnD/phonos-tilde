@@ -205,6 +205,69 @@ public:
         }   
     };
 
+    message<> set_six_point_articulation { this, "set_six_point_articulation",
+        MIN_FUNCTION {
+            if (args.size() == 16){
+                phonos::Articulation::ReducedSet reduced_set;
+
+                reduced_set.positions[0] = args[0];
+                reduced_set.positions[1] = args[1];
+                reduced_set.positions[2] = args[2];
+                reduced_set.positions[3] = args[3];
+                reduced_set.positions[4] = args[4];
+                reduced_set.positions[5] = args[5];
+
+                reduced_set.areas[0] = args[6];
+                reduced_set.areas[1] = args[7];
+                reduced_set.areas[2] = args[8];
+                reduced_set.areas[3] = args[9];
+                reduced_set.areas[4] = args[10];
+                reduced_set.areas[5] = args[11];
+
+                reduced_set.etas[0] = args[12];
+                reduced_set.etas[1] = args[13];
+                reduced_set.etas[2] = args[14];
+                reduced_set.etas[3] = args[15];
+
+                articulation_.setFromReducedSet(reduced_set);
+
+                if (processor_->get_resonator()){
+                    processor_->get_resonator()->SetTargetGeometryFromArticulation(articulation_);
+                }
+
+
+            } else {
+                cout << "Wrong number of parameters, should be the concatenation of 6 positions, 6 areas and 4 exponents." << endl;
+            }
+            return {};
+        }   
+    };
+
+    message<> get_six_point_articulation { this, "get_six_point_articulation",
+        MIN_FUNCTION {
+            atoms positions, areas, etas;
+            positions.push_back(atom("positions"));
+            areas.push_back(atom("areas"));
+            etas.push_back(atom("etas"));
+            
+            auto reduced_set = articulation_.get_reduced_set();
+
+            for (auto& area : reduced_set.areas)
+                areas.push_back(static_cast<ftype>(area));
+            
+            for (auto& eta : reduced_set.etas)
+                etas.push_back(static_cast<ftype>(eta));
+
+            for (auto& position : reduced_set.positions)
+                positions.push_back(static_cast<ftype>(position));
+
+            geometry_out.send(positions);
+            geometry_out.send(areas);
+            geometry_out.send(etas);
+            return {};
+        }   
+    };
+
     message<> get_transfer_function { this, "get_transfer_functions",
         MIN_FUNCTION {
             if (args.empty()) return {};
