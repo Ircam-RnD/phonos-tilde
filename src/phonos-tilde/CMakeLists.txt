@@ -51,15 +51,15 @@ set(C74_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../../package/exter
 # Main engine
 include(FetchContent)
 
+set(PHONOS_USE_HDF5 OFF CACHE BOOL "" FORCE)  # Read/write writing support not needed
 FetchContent_Declare(
     phonos
     GIT_REPOSITORY https://github.com/Ircam-RnD/phonos
     GIT_TAG main
     )
-set(phonos_USE_HDF5 OFF CACHE BOOL "" FORCE)  # Read/write writing support not needed
 FetchContent_MakeAvailable(phonos)
-set(phonos_BUILD_EXAMPLES OFF)
-set(phonos_BUILD_TESTS OFF)
+set(PHONOS_BUILD_EXAMPLES OFF)
+set(PHONOS_BUILD_TESTS OFF)
 
 
 # Misc setup and subroutines
