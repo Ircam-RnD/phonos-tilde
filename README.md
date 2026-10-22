@@ -1,6 +1,6 @@
 # Phonos-tilde
 
-Max-MSP objects based on the [phonos](https://github.com/Ircam-RnD/phonos) (Time domain Acoustic Real-Time Engine) library for audio synthesis based on physical modeling. As of now, contains almost exclusively an object related to voice synthesis named ``phonos.voice~``.
+Max-MSP objects based on the [phonos](https://github.com/Ircam-RnD/phonos) library for audio synthesis based on physical modeling. As of now, contains almost exclusively an object related to voice synthesis named ``phonos.voice~``.
 
 
 ## Contents
@@ -22,6 +22,14 @@ The object wraps around this diagram, and, while it gives access to the low leve
 Here is an example interface built around the object:
 
 <img src="./media/voice_example_interface.png" alt="Voice block diagram" width="100%"/>
+
+### Max 4 Live
+
+A Max for live instruments is built around the voice object. It is not controlled by midi, but rather through low level physical controls. 
+
+<img src="./media/M4L_voice.png" alt="M4L device" width="80%"/>
+
+An audio input can be chosen in the foldable window on the left on the device and is in this case added to the sub-glottal pressure. This can create interesting effects.
 
 ### phonos.trackpad
 
